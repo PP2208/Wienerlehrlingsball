@@ -10,6 +10,7 @@ import Home from "@/pages/Home";
 import Infos from "@/pages/Infos";
 import Tickets from "@/pages/Tickets";
 import Kontakt from "@/pages/Kontakt";
+import Impressum from "@/pages/Impressum";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
 import SiteLayout from "@/components/SiteLayout";
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/infos" element={<Infos />} />
                 <Route path="/tickets" element={<Tickets />} />
                 <Route path="/kontakt" element={<Kontakt />} />
+                <Route path="/impressum" element={<Impressum />} />
               </Route>
 
               <Route path="/admin" element={<AdminLogin />} />

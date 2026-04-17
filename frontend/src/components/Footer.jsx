@@ -45,16 +45,33 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3 text-white/70">
               <Instagram size={14} className="text-jewel-gold" />
-              <span>Instagram (bald verfügbar)</span>
+              <a
+                href="https://www.instagram.com/wienerlehrlingsball.at"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-jewel-gold transition-colors"
+                data-testid="footer-instagram"
+              >
+                @wienerlehrlingsball.at
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/40">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-white/40">
           <p>© 2027 Wiener Lehrlingsball</p>
-          <p>Wien · Österreich</p>
+          <div className="flex items-center gap-6">
+            <Link
+              to="/impressum"
+              className="hover:text-jewel-gold transition-colors"
+              data-testid="footer-impressum"
+            >
+              Impressum
+            </Link>
+            <p>Wien · Österreich</p>
+          </div>
         </div>
       </div>
     </footer>
