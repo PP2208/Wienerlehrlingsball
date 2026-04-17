@@ -15,6 +15,7 @@ import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
 import SiteLayout from "@/components/SiteLayout";
 import RequireAdmin from "@/components/RequireAdmin";
+import RequireGate from "@/components/RequireGate";
 
 const GateRoot = () => {
   const { granted } = useGate();
@@ -31,7 +32,13 @@ function App() {
             <Routes>
               <Route path="/" element={<GateRoot />} />
 
-              <Route element={<SiteLayout />}>
+              <Route
+                element={
+                  <RequireGate>
+                    <SiteLayout />
+                  </RequireGate>
+                }
+              >
                 <Route path="/home" element={<Home />} />
                 <Route path="/infos" element={<Infos />} />
                 <Route path="/tickets" element={<Tickets />} />
