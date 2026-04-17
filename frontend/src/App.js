@@ -1,52 +1,70 @@
-import { useEffect } from "react";
+import React from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "sonner";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { GateProvider, useGate } from "@/context/GateContext";
+import { AuthProvider } from "@/context/AuthContext";
+import ComingSoon from "@/pages/ComingSoon";
+import Home from "@/pages/Home";
+import Infos from "@/pages/Infos";
+import Tickets from "@/pages/Tickets";
+import Kontakt from "@/pages/Kontakt";
+import AdminLogin from "@/pages/AdminLogin";
+import AdminDashboard from "@/pages/AdminDashboard";
+import SiteLayout from "@/components/SiteLayout";
+import RequireAdmin from "@/components/RequireAdmin";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
+const GateRoot = () => {
+  const { granted } = useGate();
+  if (!granted) return <ComingSoon />;
+  return <Navigate to="/home" replace />;
 };
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GateProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<GateRoot />} />
+
+              <Route element={<SiteLayout />}>
+                <Route path="/home" element={<Home />} />
+                <Route path="/infos" element={<Infos />} />
+                <Route path="/tickets" element={<Tickets />} />
+                <Route path="/kontakt" element={<Kontakt />} />
+              </Route>
+
+              <Route path="/admin" element={<AdminLogin />} />
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <RequireAdmin>
+                    <AdminDashboard />
+                  </RequireAdmin>
+                }
+              />
+
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </BrowserRouter>
+          <Toaster
+            theme="dark"
+            position="top-center"
+            toastOptions={{
+              style: {
+                background: "#0B1120",
+                border: "1px solid rgba(209,169,84,0.3)",
+                color: "#F8FAFC",
+                borderRadius: "2px",
+                fontFamily: "Manrope, sans-serif",
+              },
+            }}
+          />
+        </AuthProvider>
+      </GateProvider>
     </div>
   );
 }
