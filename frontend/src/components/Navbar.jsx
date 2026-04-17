@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
-import { useGate } from "@/context/GateContext";
+import { NavLink, Link } from "react-router-dom";
 
 const links = [
   { to: "/infos", label: "Infos" },
@@ -9,14 +8,6 @@ const links = [
 ];
 
 const Navbar = () => {
-  const { lock } = useGate();
-  const navigate = useNavigate();
-
-  const handleLock = () => {
-    lock();
-    navigate("/");
-  };
-
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-jewel-base/70 border-b border-white/10"
@@ -36,7 +27,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-4 sm:gap-6 md:gap-10">
+        <nav className="flex items-center gap-5 sm:gap-8 md:gap-12">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -51,14 +42,6 @@ const Navbar = () => {
               {l.label}
             </NavLink>
           ))}
-          <button
-            onClick={handleLock}
-            data-testid="nav-lock-btn"
-            className="hidden sm:inline text-[9px] md:text-[10px] uppercase tracking-[0.28em] text-white/40 hover:text-white/80 transition-colors"
-            title="Zurück zur Coming-Soon-Seite"
-          >
-            Sperren
-          </button>
         </nav>
       </div>
     </header>
