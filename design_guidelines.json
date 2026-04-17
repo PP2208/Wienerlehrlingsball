@@ -1,0 +1,119 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 5 (Jewel & Luxury)",
+  "language": "German",
+  "colors": {
+    "background_base": "#050810",
+    "background_surface": "#0B1120",
+    "primary_accent": "#D1A954",
+    "secondary_accent": "#C0C0C0",
+    "text_main": "#F8FAFC",
+    "text_muted": "#94A3B8",
+    "border_subtle": "rgba(255, 255, 255, 0.1)",
+    "border_highlight": "rgba(209, 169, 84, 0.5)",
+    "gradient_glow": "radial-gradient(circle, rgba(209,169,84,0.15) 0%, rgba(5,8,16,0) 70%)"
+  },
+  "typography": {
+    "heading_font": "Playfair Display, serif",
+    "body_font": "Manrope, sans-serif",
+    "heading_classes": "font-serif tracking-tight text-white",
+    "body_classes": "font-sans text-[#F8FAFC] leading-relaxed",
+    "h1": "text-4xl sm:text-5xl lg:text-6xl font-serif text-white",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl font-serif text-white",
+    "h3": "text-xl sm:text-2xl font-serif text-[#D1A954]",
+    "overline": "text-xs uppercase tracking-[0.2em] text-[#C0C0C0]"
+  },
+  "layout_and_spacing": {
+    "philosophy": "Generous spacing. High whitespace. Minimalist approach with clear lines.",
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32",
+    "grid_system": "Bento or Swiss Grid with asymmetrical elements. Use CSS Grid with large gaps (gap-8 to gap-16).",
+    "border_radius": "rounded-none or rounded-sm to maintain a sharp, elegant, luxurious feel."
+  },
+  "components": {
+    "navigation": {
+      "style": "Crystal Glassmorphism",
+      "classes": "fixed top-0 w-full z-50 backdrop-blur-xl bg-[#050810]/70 border-b border-white/10"
+    },
+    "buttons": {
+      "primary": "bg-transparent border border-[#D1A954] text-[#D1A954] hover:bg-[#D1A954] hover:text-black transition-all duration-300 py-3 px-8 text-sm uppercase tracking-widest",
+      "secondary": "bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 py-3 px-8 text-sm uppercase tracking-widest"
+    },
+    "cards_and_surfaces": {
+      "style": "Flat solid surfaces. No heavy shadows. 1px delicate borders.",
+      "classes": "bg-[#0B1120] border border-white/10 p-8 hover:border-[#D1A954]/30 transition-colors"
+    },
+    "inputs": {
+      "style": "Minimalist underline or 1px subtle border, dark background.",
+      "classes": "bg-transparent border-b border-white/20 text-white focus:border-[#D1A954] focus:ring-0 rounded-none px-0 py-3 outline-none transition-colors w-full"
+    }
+  },
+  "motion_and_interactions": {
+    "global": "Subtle, cinematic, and slow. No bouncy or rapid animations.",
+    "hover_effects": "Opacity changes, subtle border color shifts (white/10 to Gold), slow translation (-translate-y-1).",
+    "page_transitions": "Fade-in with slow upward drift for text elements."
+  },
+  "media_and_images": {
+    "hero_overlay": "bg-black/50 to bg-black/70 to ensure text readability while letting the image breathe.",
+    "image_urls": {
+      "coming_soon_bg": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/76086d28-fd1d-4395-8afc-d23c04585e99/images/20e38b7c57aec78e48488ecf70811ac99a1ace628f18596f7ec9ea98a088d312.png",
+        "description": "Abstract gold chandelier. Use as a mysterious, elegant background for the Coming Soon page.",
+        "placement": "Coming Soon Landing Page Hero/Background"
+      },
+      "home_hero": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/76086d28-fd1d-4395-8afc-d23c04585e99/images/d347a654fc727643ec48a29bdf6bc75532484fea400a4b0d6da7c2f421b0882d.png",
+        "description": "Elegant Viennese ball scene, young people, gold lighting.",
+        "placement": "Main Website Home Hero Section"
+      },
+      "info_section": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/76086d28-fd1d-4395-8afc-d23c04585e99/images/20e128dfdd3df9dce30523c5a56df9cca72b6e4841892ebf4313bd224b8f8b74.png",
+        "description": "Silhouette of a young elegant couple waltzing in a dark majestic hall.",
+        "placement": "Infos Page or Home Info Teaser Section"
+      }
+    }
+  },
+  "pages_and_structure": {
+    "coming_soon": {
+      "concept": "A cinematic, dark, and mysterious entry point. Central focus is the newsletter signup.",
+      "functionality": "Email input field acts as a secret gate. If 'LBALL2027' is entered as the email address, redirect/grant access to the full site."
+    },
+    "home": {
+      "concept": "The grand reveal. Huge high-quality hero image with dark overlay, serif typography, elegant layout.",
+      "sections": [
+        "Hero with Subtitle ('Der erste Ball Wiens, der die Lehre ins Rampenlicht stellt') & Call to Action",
+        "Brief Event Description",
+        "Email Signup Footer"
+      ]
+    },
+    "infos": {
+      "concept": "Deep dive into the vision. Lots of whitespace, asymmetric text-image pairing.",
+      "content": [
+        "Concept Explanation",
+        "Target Audience (Apprentices/Lehrlinge)",
+        "Vision of the event"
+      ]
+    },
+    "tickets": {
+      "concept": "Placeholder page. Elegant 'Available Soon' message centered on screen with gold accents."
+    },
+    "contact": {
+      "concept": "Minimalist contact form. Clean lines, dark inputs."
+    },
+    "admin": {
+      "concept": "Functional but keeping the dark mode aesthetic. Login screen + Dashboard to view/export Newsletter and Contact entries."
+    }
+  },
+  "technical_instructions_for_main_agent": [
+    "ALL text and content MUST be in German as requested.",
+    "Use standard Tailwind classes. For custom colors, extend tailwind.config.js with colors like jewel-blue (#050810), jewel-gold (#D1A954), jewel-silver (#C0C0C0).",
+    "Import 'Playfair Display' and 'Manrope' via Google Fonts in index.html or global css.",
+    "Implement the Coming Soon gate using a simple React state or context. If the email input value equals 'LBALL2027', set authenticated=true and route to the main site.",
+    "Use lucide-react for icons.",
+    "For all interactive elements, ADD the `data-testid` attribute (e.g., data-testid='newsletter-submit', data-testid='nav-infos').",
+    "Keep borders to 1px. Avoid heavy drop shadows. Use border-white/10 for subtle separation.",
+    "Ensure the hero images have a 'bg-black/50' to 'bg-black/70' overlay so the elegant typography stays readable.",
+    "All components MUST be built in pure React + Tailwind (.jsx or .js files, NO TypeScript). Use Shadcn ONLY for complex interaction logic if needed, but restyle to fit the luxury dark theme.",
+    "Use `framer-motion` for the required subtle fade-in and hover animations."
+  ]
+}
