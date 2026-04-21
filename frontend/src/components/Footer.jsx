@@ -10,6 +10,11 @@ const Footer = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="md:col-span-2">
+          <img
+            src="/logo.png"
+            alt="Wiener Lehrlingsball 2027"
+            className="h-20 w-auto mb-6"
+          />
           <p className="overline mb-4">Wiener</p>
           <h3 className="font-serif text-3xl md:text-4xl text-white">
             Lehrlingsball <span className="text-jewel-gold">2027</span>

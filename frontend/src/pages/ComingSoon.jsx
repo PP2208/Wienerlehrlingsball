@@ -68,6 +68,15 @@ const ComingSoon = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-3xl px-6 md:px-10 py-20 text-center">
+        <motion.img
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+          src="/logo.png"
+          alt="Wiener Lehrlingsball 2027"
+          className="mx-auto h-28 sm:h-36 md:h-40 w-auto mb-2"
+        />
+
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

@@ -26,14 +26,21 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-16 h-20 flex items-center justify-between gap-4">
         <Link
           to="/home"
-          className="group flex flex-col leading-none shrink-0"
+          className="group flex items-center gap-3 shrink-0"
           data-testid="nav-logo"
         >
-          <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-jewel-silver">
-            Wiener
-          </span>
-          <span className="font-serif text-lg sm:text-xl md:text-2xl text-white group-hover:text-jewel-gold transition-colors duration-500">
-            Lehrlingsball <span className="text-jewel-gold">2027</span>
+          <img
+            src="/logo.png"
+            alt="Wiener Lehrlingsball 2027"
+            className="h-12 sm:h-14 w-auto transition-opacity duration-500 group-hover:opacity-90"
+          />
+          <span className="hidden md:flex flex-col leading-none">
+            <span className="text-[9px] uppercase tracking-[0.4em] text-jewel-silver">
+              Wiener
+            </span>
+            <span className="font-serif text-lg lg:text-xl text-white group-hover:text-jewel-gold transition-colors duration-500">
+              Lehrlingsball <span className="text-jewel-gold">2027</span>
+            </span>
           </span>
         </Link>
 
