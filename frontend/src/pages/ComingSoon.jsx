@@ -66,17 +66,22 @@ const ComingSoon = () => {
       <div className="absolute inset-0 radial-gold opacity-80" />
       <div className="noise" />
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-3xl px-6 md:px-10 py-20 text-center">
-        <motion.img
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+      {/* Logo as wax-seal emblem, top-left */}
+      <motion.div
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
+        className="absolute top-6 left-6 sm:top-10 sm:left-10 md:top-12 md:left-14 z-20"
+      >
+        <img
           src="/logo.png"
           alt="Wiener Lehrlingsball 2027"
-          className="mx-auto h-28 sm:h-36 md:h-40 w-auto mb-2"
+          className="h-14 sm:h-16 md:h-20 w-auto opacity-90 hover:opacity-100 transition-opacity duration-500"
         />
+      </motion.div>
 
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-3xl px-6 md:px-10 py-20 text-center">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
