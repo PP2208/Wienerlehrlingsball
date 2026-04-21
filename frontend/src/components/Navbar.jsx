@@ -1,5 +1,7 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { LogOut } from "lucide-react";
+import { useGate } from "@/context/GateContext";
 
 const links = [
   { to: "/infos", label: "Infos" },
@@ -8,6 +10,14 @@ const links = [
 ];
 
 const Navbar = () => {
+  const { lock } = useGate();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    lock();
+    navigate("/");
+  };
+
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-jewel-base/70 border-b border-white/10"
@@ -42,6 +52,15 @@ const Navbar = () => {
               {l.label}
             </NavLink>
           ))}
+          <button
+            onClick={handleLogout}
+            data-testid="nav-logout"
+            title="Abmelden und zur Startseite"
+            className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.22em] sm:tracking-[0.28em] text-white/40 hover:text-jewel-gold transition-colors duration-500"
+          >
+            <LogOut size={12} />
+            <span className="hidden sm:inline">Logout</span>
+          </button>
         </nav>
       </div>
     </header>
